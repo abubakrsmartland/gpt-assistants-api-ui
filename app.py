@@ -229,6 +229,9 @@ def render_chat():
     for chat in st.session_state.chat_log:
         with st.chat_message(chat["name"]):
             st.markdown(chat["msg"], True)
+            
+            if "The document does not" in chat['msg']:
+                print("Question not answered")
 
 
 if "tool_call" not in st.session_state:
